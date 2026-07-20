@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail; // 1. Wajib ada
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail // 2. Wajib implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
 
@@ -14,7 +15,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role', // Wajib didaftarkan untuk Mass Assignment
+        'role',
     ];
 
     protected $hidden = [

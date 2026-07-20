@@ -53,4 +53,50 @@ class LaporanController extends Controller
         // Buka PDF langsung di tab browser baru
         return $pdf->stream('KHS_' . $mahasiswa->nim . '.pdf');
     }
+
+    /**
+     * Memproses Export Rekap Data Mahasiswa ke File Excel (.csv / .xlsx)
+     * Menggunakan Native Stream Response yang 100% kompatibel dengan Laravel 12
+     */
+    public function exportMahasiswaExcel()
+    {
+        $mahasiswas = Mahasiswa::with(['user', 'kelas'])->get();
+        $fileName = 'Rekap_Data_Mahasiswa_SIPAKAD.csv';
+
+        $headers = [
+            "Content-type"        => "text/csv; charset=UTF-8",
+            "Content-Disposition" => "attachment; filename=$fileName",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        ];
+
+        $columns = ['NO', 'NIM', 'NAMA MAHASISWA', 'EMAIL AKADEMIK', 'PROGRAM STUDI', 'SEMESTER', 'ANGKATAN', 'KELAS'];
+
+        $callback = function() use($mahasiswas, $columns) {
+            $file = fopen('php://output', 'w');
+            
+            // Injeksi BOM UTF-8 agar karakter khusus & NIM format teks terbaca rapi di Microsoft Excel
+            fputs($file, "\xEF\xBB\xBF");
+            fputcsv($file, $columns);
+
+            $no = 1;
+            foreach ($mahasiswas as $m) {
+                fputcsv($file, [
+                    $no++,
+                    "'" . $m->nim, // Tanda petik tunggal mencegah NIM terkonversi otomatis menjadi notasi ilmiah di Excel
+                    strtoupper($m->user->name ?? '-'),
+                    $m->user->email ?? '-',
+                    $m->prodi ?? 'Teknik Informatika',
+                    'Semester ' . $m->semester,
+                    $m->angkatan,
+                    $m->kelas->nama_kelas ?? 'Belum Ditentukan',
+                ]);
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
 }

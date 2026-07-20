@@ -14,20 +14,22 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Akun Administrator
+        // 1. Akun Administrator (Otomatis Terverifikasi Email)
         User::create([
             'name' => 'Administrator SIPAKAD',
             'email' => 'admin@unimal.ac.id',
             'password' => Hash::make('password123'),
             'role' => 'admin',
+            'email_verified_at' => now(), // <-- DITAMBAHKAN AGAR ADMIN BISA LOGIN DIRECT
         ]);
 
-        // 2. Akun & Profil Dosen
+        // 2. Akun & Profil Dosen (Otomatis Terverifikasi Email)
         $userDosen = User::create([
             'name' => 'Dosen Pengajar, S.Kom., M.Kom.',
             'email' => 'dosen@unimal.ac.id',
             'password' => Hash::make('password123'),
             'role' => 'dosen',
+            'email_verified_at' => now(), // <-- DITAMBAHKAN
         ]);
 
         $dosen = Dosen::create([
@@ -42,12 +44,13 @@ class DatabaseSeeder extends Seeder
             'dosen_id' => $dosen->id
         ]);
 
-        // 4. Akun & Profil Mahasiswa
+        // 4. Akun & Profil Mahasiswa (Otomatis Terverifikasi Email)
         $userMhs = User::create([
             'name' => 'Mahasiswa Informatika',
             'email' => 'mahasiswa@mhs.unimal.ac.id',
             'password' => Hash::make('password123'),
             'role' => 'mahasiswa',
+            'email_verified_at' => now(), // <-- DITAMBAHKAN
         ]);
 
         Mahasiswa::create([

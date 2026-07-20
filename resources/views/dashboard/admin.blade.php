@@ -67,10 +67,12 @@
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
     <div class="lg:col-span-2 bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-6 rounded-2xl">
-        <h4 class="text-sm font-semibold text-slate-300 mb-4 tracking-wide">Grafik Trend Presensi Kuliah</h4>
-        <div class="h-64 flex flex-col items-center justify-center border border-dashed border-slate-800/80 rounded-xl text-slate-500">
-            <svg class="w-8 h-8 mb-2 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-            <span class="text-xs font-medium">Analisis Chart.js Akan Diintegrasikan pada Tahap 10</span>
+        <div class="flex items-center justify-between mb-4">
+            <h4 class="text-sm font-semibold text-slate-300 tracking-wide">Rekapitulasi Status Presensi Mahasiswa</h4>
+            <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold px-2.5 py-1 rounded-full uppercase">Data Realtime</span>
+        </div>
+        <div class="h-64 relative">
+            <canvas id="chartPresensiAdmin"></canvas>
         </div>
     </div>
     
@@ -85,4 +87,57 @@
         </div>
     </div>
 </div>
+<!-- INJEKSI LIBRARY CHART.JS VIA CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const ctx = document.getElementById('chartPresensiAdmin').getContext('2d');
+        
+        new Chart(ctx, {
+            type: 'bar', // Menggunakan Bar Chart agar akurat menampilkan jumlah per status
+            data: {
+                labels: ['Hadir', 'Izin', 'Sakit', 'Alpa'],
+                datasets: [{
+                    label: 'Jumlah Mahasiswa',
+                    data: [
+                        {{ $stats['chart_hadir'] }}, 
+                        {{ $stats['chart_izin'] }}, 
+                        {{ $stats['chart_sakit'] }}, 
+                        {{ $stats['chart_alpa'] }}
+                    ],
+                    backgroundColor: [
+                        'rgba(16, 185, 129, 0.85)', // Emerald (Hadir)
+                        'rgba(59, 130, 246, 0.85)', // Blue (Izin)
+                        'rgba(245, 158, 11, 0.85)', // Amber (Sakit)
+                        'rgba(239, 68, 68, 0.85)'   // Rose/Red (Alpa)
+                    ],
+                    borderRadius: 8,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#94a3b8' },
+                        grid: { display: false }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { 
+                            color: '#94a3b8',
+                            precision: 0,
+                            stepSize: 1 // Angka bulat (0, 1, 2, 3...) sesuai jumlah riil mahasiswa
+                        },
+                        grid: { color: 'rgba(51, 65, 85, 0.2)' }
+                    }
+                }
+            }
+        });
+    });
+</script>
 @endsection

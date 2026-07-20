@@ -30,6 +30,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('kelas', \App\Http\Controllers\Admin\KelasController::class);
         Route::resource('ruangan', \App\Http\Controllers\Admin\RuanganController::class);
         Route::resource('jadwal', \App\Http\Controllers\Admin\JadwalKuliahController::class);
+        Route::get('/laporan/export-mahasiswa-excel', [\App\Http\Controllers\Admin\LaporanController::class, 'exportMahasiswaExcel'])->name('laporan.mahasiswa.excel');
         
         // PERBAIKAN: URL diperpendek karena sudah ada prefix 'admin', dan nama rute cukup 'laporan.khs' (akan otomatis digabung grup menjadi admin.laporan.khs)
         Route::get('/laporan/cetak-khs/{id}', [\App\Http\Controllers\Admin\LaporanController::class, 'cetakKhs'])->name('laporan.khs');
@@ -54,16 +55,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // ==========================================
 // 3. OTORITAS ROUTE: MAHASISWA ONLY
-// ==========================================
-    // ==========================================
-    // 3. OTORITAS ROUTE: MAHASISWA ONLY
-    // ==========================================
-    // ==========================================
-    // 3. OTORITAS ROUTE: MAHASISWA ONLY
-    // ==========================================
-    // ==========================================
-    // 3. OTORITAS ROUTE: MAHASISWA ONLY
-    // ==========================================
     Route::middleware(['role:mahasiswa'])->prefix('mahasiswa')->name('mahasiswa.')->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Mahasiswa\MateriController::class, 'dashboard'])->name('dashboard');
         
@@ -75,7 +66,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/materi', [\App\Http\Controllers\Mahasiswa\MateriController::class, 'index'])->name('materi.index');
         Route::get('/khs', [\App\Http\Controllers\Mahasiswa\MateriController::class, 'khs'])->name('khs');
         Route::get('/presensi', [\App\Http\Controllers\Mahasiswa\MateriController::class, 'presensi'])->name('presensi');
-    });
+            });
 });
 
 require __DIR__.'/auth.php';
