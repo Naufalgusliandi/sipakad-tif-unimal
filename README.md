@@ -14,6 +14,7 @@
 
 ## Fitur Utama & Kriteria UAS
 1. **Autentikasi Pengguna:** Login, Registrasi, dan Verifikasi Email / Google Login.
+![Login Page](screenshoot/Login%20(Laptop).png)
 2. **Hak Akses Berbasis Role (Multi-Role):**
    * **Admin:** Pengelolaan Master Data (Mahasiswa, Dosen, Mata Kuliah, Kelas, Ruangan, Jadwal Kuliah).
    * **Dosen:** Pengelolaan Absensi, Input Nilai, dan Upload Materi Kuliah.
@@ -39,5 +40,5 @@
 
 ### 1. Clone Repository
 ```bash
-git clone [https://github.com/Naufalgusliandi/sipakad-tif-unimal](https://github.com/Naufalgusliandi/sipakad-tif-unimal.git)
+git clone [https://github.com/Naufalgusliandi/sipakad-tif-unimal](https://github.com/Naufalgusliandi/sipakad-tif-unimal)
 cd sipakad
