@@ -8,7 +8,7 @@
 <div class="space-y-8">
     
     <div class="bg-white overflow-hidden shadow-sm rounded-2xl border border-slate-200 mb-2">
-        <div class="p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="p-5 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex flex-col md:flex-row items-center gap-5 text-center md:text-left">
                 <div class="p-2 bg-emerald-50 rounded-2xl border border-emerald-100 shadow-inner">
                     <img src="{{ asset('images/logo-tif.png') }}" alt="Logo TIF" class="w-24 h-24 object-contain">
@@ -29,7 +29,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm flex items-center justify-between group hover:border-emerald-500/30 transition-all">
+        <div class="bg-white border border-slate-200 p-4 sm:p-6 rounded-2xl shadow-sm flex items-center justify-between group hover:border-emerald-500/30 transition-all">
             <div class="space-y-1">
                 <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Indeks Prestasi Kumulatif</p>
                 <h3 class="text-3xl font-extrabold text-slate-900 font-mono tracking-tight">{{ $ipk }}</h3>
@@ -38,7 +38,7 @@
             <div class="h-12 w-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center font-black text-lg shadow-inner">IPK</div>
         </div>
 
-        <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm flex items-center justify-between group hover:border-emerald-500/30 transition-all">
+        <div class="bg-white border border-slate-200 p-4 sm:p-6 rounded-2xl shadow-sm flex items-center justify-between group hover:border-emerald-500/30 transition-all">
             <div class="space-y-1">
                 <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Beban SKS Semester</p>
                 <h3 class="text-3xl font-extrabold text-slate-900 font-mono tracking-tight">{{ $sks_total }} <span class="text-sm font-bold text-slate-400">SKS</span></h3>
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm flex items-center justify-between group hover:border-emerald-500/30 transition-all">
+        <div class="bg-white border border-slate-200 p-4 sm:p-6 rounded-2xl shadow-sm flex items-center justify-between group hover:border-emerald-500/30 transition-all">
             <div class="space-y-1">
                 <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Rata-rata Kehadiran</p>
                 <h3 class="text-3xl font-extrabold text-slate-900 font-mono tracking-tight">{{ $hadir_pct }}<span class="text-sm font-bold text-slate-400">%</span></h3>
@@ -64,9 +64,9 @@
 
     </div>
 
-    <div class="bg-white overflow-hidden shadow-sm rounded-2xl border border-slate-200 p-8 relative">
+    <div class="bg-white overflow-hidden shadow-sm rounded-2xl border border-slate-200 p-5 sm:p-8 relative">
         <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none"></div>
-        <div class="flex items-start gap-4">
+        <div class="flex flex-col sm:flex-row items-start gap-4">
             <div class="p-3 bg-amber-50 rounded-xl text-amber-600 mt-1">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>

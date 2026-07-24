@@ -6,13 +6,13 @@
 <div class="space-y-6">
 
     <!-- HERO HEADER (Aksen Emerald-Teal Gradient) -->
-    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-teal-950 border border-slate-800 text-white p-8 shadow-xl">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-teal-950 border border-slate-800 text-white p-5 sm:p-8 shadow-xl">
         <!-- Ambient Light Effect -->
         <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute right-1/3 -top-12 w-48 h-48 bg-teal-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
         <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div class="flex items-center gap-5">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
                 <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-3xl font-extrabold text-white shadow-lg shadow-emerald-950/50 shrink-0 border border-emerald-400/30">
                     {{ strtoupper(substr(auth()->user()->name, 0, 2)) }}
                 </div>
@@ -46,7 +46,7 @@
         <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
             
             <!-- Card 1: Mata Kuliah (Indigo) -->
-            <div class="bg-white border-l-4 border-l-indigo-600 border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white border-l-4 border-l-indigo-600 border border-slate-200/80 rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all">
                 <div class="flex items-center justify-between">
                     <p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Mata Kuliah</p>
                     <span class="p-2 rounded-xl bg-indigo-50 text-indigo-600">
@@ -60,7 +60,7 @@
             </div>
 
             <!-- Card 2: Materi (Sky) -->
-            <div class="bg-white border-l-4 border-l-sky-500 border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white border-l-4 border-l-sky-500 border border-slate-200/80 rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all">
                 <div class="flex items-center justify-between">
                     <p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Modul & Materi</p>
                     <span class="p-2 rounded-xl bg-sky-50 text-sky-600">
@@ -74,7 +74,7 @@
             </div>
 
             <!-- Card 3: Rekap Presensi (Teal) -->
-            <div class="bg-white border-l-4 border-l-teal-500 border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all">
+            <div class="bg-white border-l-4 border-l-teal-500 border border-slate-200/80 rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all">
                 <div class="flex items-center justify-between">
                     <p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Total Rekap Presensi</p>
                     <span class="p-2 rounded-xl bg-teal-50 text-teal-600">
@@ -88,7 +88,7 @@
             </div>
 
             <!-- Card 4: Status (Emerald-Teal Gradient) -->
-            <div class="bg-gradient-to-br from-emerald-800 to-teal-900 text-white border border-emerald-700/80 rounded-2xl p-6 shadow-md flex flex-col justify-between">
+            <div class="bg-gradient-to-br from-emerald-800 to-teal-900 text-white border border-emerald-700/80 rounded-2xl p-4 sm:p-6 shadow-md flex flex-col justify-between">
                 <p class="text-emerald-200 text-xs font-bold uppercase tracking-wider">Status Akademik</p>
                 <div class="mt-3">
                     <h2 class="text-xl font-bold flex items-center gap-2">
@@ -101,7 +101,7 @@
         </div>
 
         <!-- KOLOM KANAN: WIDGET GRAFIK KEHADIRAN -->
-        <div class="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-4 sm:p-6 shadow-sm flex flex-col justify-between">
             <div>
                 <div class="flex items-center justify-between">
                     <h3 class="text-sm font-bold text-slate-900">Sesi Mengajar</h3>
@@ -120,7 +120,7 @@
 
     <!-- JADWAL PERKULIAHAN -->
     <div class="bg-white border border-slate-200/80 rounded-3xl overflow-hidden shadow-sm">
-        <div class="px-8 py-6 bg-slate-50/60 border-b border-slate-200/80 flex items-center justify-between">
+        <div class="px-5 sm:px-8 py-5 sm:py-6 bg-slate-50/60 border-b border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0">
             <div>
                 <h2 class="text-lg font-bold text-slate-900">
                     Jadwal Perkuliahan
@@ -136,7 +136,7 @@
 
         <div class="divide-y divide-slate-100">
             @forelse($jadwals as $j)
-            <div class="flex flex-col lg:flex-row lg:items-center justify-between p-6 hover:bg-slate-50/80 transition-colors gap-4">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between p-4 sm:p-6 hover:bg-slate-50/80 transition-colors gap-3 sm:gap-4">
                 <div class="flex-1">
                     <div class="flex items-center gap-2">
                         <h3 class="font-bold text-base text-slate-900">
@@ -152,13 +152,13 @@
                     </p>
                 </div>
 
-                <div class="text-xs font-mono text-slate-600 lg:text-center">
+                <div class="text-xs font-mono text-slate-600 sm:text-left lg:text-center">
                     <span class="font-bold text-slate-900 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200/60 inline-block mb-1">{{ $j->hari }}</span>
                     <br>
                     <span class="text-slate-500">{{ $j->jam_mulai }} - {{ $j->jam_selesai }} WIB</span>
                 </div>
 
-                <div class="lg:text-center">
+                <div class="sm:text-left lg:text-center">
                     <span class="px-3 py-1.5 rounded-lg bg-teal-50/60 text-teal-900 border border-teal-200/70 font-semibold text-xs">
                         Ruang {{ $j->ruangan->nama_ruangan }}
                     </span>

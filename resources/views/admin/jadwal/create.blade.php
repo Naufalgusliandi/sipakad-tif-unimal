@@ -12,7 +12,7 @@
     </a>
 </div>
 
-<div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl p-8 max-w-4xl">
+<div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl p-5 sm:p-8 max-w-4xl">
     
     @if ($errors->any())
         <div class="mb-6 p-4 bg-rose-500/10 border border-rose-500/20 text-rose-400 rounded-xl text-xs space-y-1">
@@ -92,11 +92,11 @@
 
         </div>
 
-        <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-800/60">
-            <a href="{{ route('admin.jadwal.index') }}" class="px-5 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-colors">Batal</a>
-            <button type="submit" class="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 text-white text-xs font-semibold rounded-xl shadow-md shadow-indigo-600/10 hover:from-indigo-500 hover:to-blue-500 transition-all">
-                Publikasikan Jadwal
-            </button>
+        <div class="flex flex-col-reverse sm:flex-row items-center justify-end gap-3 pt-4 border-t border-slate-800/60">
+            <a href="{{ route('admin.jadwal.index') }}" class="w-full sm:w-auto text-center px-5 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-colors">Batal</a>
+<button type="submit" class="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 text-white text-xs font-semibold rounded-xl shadow-md shadow-indigo-600/10 hover:from-indigo-500 hover:to-blue-500 transition-all">
+    Publikasikan Jadwal
+</button>
         </div>
     </form>
 </div>

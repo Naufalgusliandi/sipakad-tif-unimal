@@ -13,7 +13,7 @@
 @endif
 
 <div class="flex justify-end mb-6">
-    <a href="{{ route('dosen.materi.create') }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl text-sm font-semibold shadow-lg shadow-indigo-600/15 hover:from-indigo-500 hover:to-purple-500 transition-all">
+    <a href="{{ route('dosen.materi.create') }}" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl text-sm font-semibold shadow-lg shadow-indigo-600/15 hover:from-indigo-500 hover:to-purple-500 transition-all">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7-7H5.5"></path></svg>
         Unggah Berkas Materi
     </a>
@@ -21,39 +21,39 @@
 
 <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden">
     <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
+        <table class="w-full min-w-[650px] text-left border-collapse">
             <thead>
                 <tr class="border-b border-slate-800 bg-slate-900/40 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
-                    <th class="px-6 py-4">Judul Materi & Deskripsi</th>
-                    <th class="px-6 py-4">Mata Kuliah</th>
-                    <th class="px-6 py-4 text-center">Kelas</th>
-                    <th class="px-6 py-4 text-center">File</th>
-                    <th class="px-6 py-4 text-right">Aksi</th>
+                    <th class="px-4 sm:px-6 py-3.5 sm:py-4">Judul Materi & Deskripsi</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4">Mata Kuliah</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">Kelas</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">File</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-right">Aksi</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-800/60 text-sm text-slate-300">
                 @forelse($materis as $materi)
                     <tr class="hover:bg-slate-900/30 transition-colors group">
-                        <td class="px-6 py-4">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4">
                             <span class="font-semibold text-slate-200 group-hover:text-indigo-400 transition-colors block">{{ $materi->judul }}</span>
                             <span class="text-xs text-slate-500 block mt-1 max-w-md truncate">{{ $materi->deskripsi ?? 'Tidak ada deskripsi' }}</span>
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4">
                             <span class="font-medium text-slate-300 block">{{ $materi->mataKuliah->nama_mk }}</span>
                             <span class="text-xs text-slate-500 font-mono mt-0.5 block">{{ $materi->mataKuliah->kode_mk }}</span>
                         </td>
-                        <td class="px-6 py-4 text-center">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">
                             <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/10">
                                 {{ $materi->kelas->nama_kelas }}
                             </span>
                         </td>
-                        <td class="px-6 py-4 text-center">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">
                             <a href="{{ asset('storage/' . $materi->file_path) }}" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-indigo-400 hover:underline font-medium">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path></svg>
                                 Lihat Dokumen
                             </a>
                         </td>
-                        <td class="px-6 py-4 text-right">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-right">
                             <form action="{{ route('dosen.materi.destroy', $materi->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus materi kuliah ini? File fisik di server akan dihapus permanen.');">
                                 @csrf
                                 @method('DELETE')

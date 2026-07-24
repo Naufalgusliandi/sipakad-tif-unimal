@@ -13,7 +13,7 @@
 @endif
 
 <div class="flex justify-end mb-6">
-    <a href="{{ route('admin.jadwal.create') }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-xl text-sm font-semibold shadow-lg shadow-indigo-600/15 hover:from-indigo-500 hover:to-blue-500 transition-all">
+    <a href="{{ route('admin.jadwal.create') }}" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-xl text-sm font-semibold shadow-lg shadow-indigo-600/15 hover:from-indigo-500 hover:to-blue-500 transition-all">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7-7H5.5"></path></svg>
         Susun Jadwal Kuliah
     </a>
@@ -21,42 +21,42 @@
 
 <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden">
     <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
+        <table class="w-full min-w-[700px] text-left border-collapse">
             <thead>
                 <tr class="border-b border-slate-800 bg-slate-900/40 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
-                    <th class="px-6 py-4">Waktu & Hari</th>
-                    <th class="px-6 py-4">Mata Kuliah</th>
-                    <th class="px-6 py-4 text-center">Kelas</th>
-                    <th class="px-6 py-4">Ruangan</th>
-                    <th class="px-6 py-4">Dosen Pengampu</th>
-                    <th class="px-6 py-4 text-right">Aksi</th>
+                    <th class="px-4 sm:px-6 py-3.5 sm:py-4">Waktu & Hari</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4">Mata Kuliah</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">Kelas</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4">Ruangan</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4">Dosen Pengampu</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-right">Aksi</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-800/60 text-sm text-slate-300">
                 @forelse($jadwals as $jadwal)
                     <tr class="hover:bg-slate-900/30 transition-colors group">
-                        <td class="px-6 py-4">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4">
                             <span class="block font-bold text-slate-200">{{ $jadwal->hari }}</span>
                             <span class="text-xs text-slate-500 font-mono mt-0.5 block">
                                 {{ date('H:i', strtotime($jadwal->jam_mulai)) }} - {{ date('H:i', strtotime($jadwal->jam_selesai)) }} WIB
                             </span>
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4">
                             <span class="font-semibold text-slate-200 group-hover:text-indigo-400 transition-colors block">{{ $jadwal->mataKuliah->nama_mk }}</span>
                             <span class="text-xs text-indigo-400 font-mono mt-0.5 block">{{ $jadwal->mataKuliah->kode_mk }} ({{ $jadwal->mataKuliah->sks }} SKS)</span>
                         </td>
-                        <td class="px-6 py-4 text-center">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">
                             <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/10">
                                 {{ $jadwal->kelas->nama_kelas }}
                             </span>
                         </td>
-                        <td class="px-6 py-4 text-slate-400 font-medium">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-slate-400 font-medium">
                             {{ $jadwal->ruangan->nama_ruangan }}
                         </td>
-                        <td class="px-6 py-4 text-slate-400">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-slate-400">
                             {{ $jadwal->dosen->user->name }}
                         </td>
-                        <td class="px-6 py-4 text-right">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-right">
                             <form action="{{ route('admin.jadwal.destroy', $jadwal->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin membatalkan jadwal kuliah ini?');">
                                 @csrf
                                 @method('DELETE')

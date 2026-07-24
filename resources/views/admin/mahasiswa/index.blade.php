@@ -20,16 +20,16 @@
         </div>
     </form>
 
-    <div class="flex items-center gap-3">
+    <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
     <!-- TAMBAHKAN TOMBOL INI DI SAMPING TOMBOL TAMBAH MAHASISWA -->
-    <a href="{{ route('admin.laporan.mahasiswa.excel') }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-semibold shadow-lg shadow-emerald-600/20 transition-all duration-200">
+    <a href="{{ route('admin.laporan.mahasiswa.excel') }}" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-semibold shadow-lg shadow-emerald-600/20 transition-all duration-200">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 01-2-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
         </svg>
         <span>Export Excel</span>
     </a>
 
-    <a href="{{ route('admin.mahasiswa.create') }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-xl text-sm font-semibold shadow-lg shadow-indigo-600/15 hover:from-indigo-500 hover:to-blue-500 transition-all">
+    <a href="{{ route('admin.mahasiswa.create') }}" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-xl text-sm font-semibold shadow-lg shadow-indigo-600/15 hover:from-indigo-500 hover:to-blue-500 transition-all">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7-7H5.5"></path></svg>
         Tambah Mahasiswa
     </a>
@@ -38,21 +38,21 @@
 
 <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-800/40">
     <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
+        <table class="w-full min-w-[700px] text-left border-collapse">
             <thead>
                 <tr class="border-b border-slate-800 bg-slate-900/40 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
-                    <th class="px-6 py-4">Mahasiswa</th>
-                    <th class="px-6 py-4">NIM</th>
-                    <th class="px-6 py-4">Program Studi</th>
-                    <th class="px-6 py-4 text-center">Semester</th>
-                    <th class="px-6 py-4 text-center">Angkatan</th>
-                    <th class="px-6 py-4 text-right">Aksi</th>
+                    <th class="px-4 sm:px-6 py-3.5 sm:py-4">Mahasiswa</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4">NIM</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4">Program Studi</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">Semester</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">Angkatan</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-right">Aksi</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-800/60 text-sm text-slate-300">
                 @forelse($mahasiswas as $mhs)
                     <tr class="hover:bg-slate-900/30 transition-colors group">
-                        <td class="px-6 py-4 flex items-center gap-3">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 flex items-center gap-3">
                             @if($mhs->foto)
                                 <img src="{{ asset('storage/' . $mhs->foto) }}" class="h-10 w-10 rounded-xl object-cover border border-slate-700" alt="Foto">
                             @else
@@ -63,15 +63,15 @@
                                 <p class="text-xs text-slate-500">{{ $mhs->user->email }}</p>
                             </div>
                         </td>
-                        <td class="px-6 py-4 font-mono text-xs text-slate-400 tracking-wider">{{ $mhs->nim }}</td>
-                        <td class="px-6 py-4 text-slate-400">{{ $mhs->prodi }}</td>
-                        <td class="px-6 py-4 text-center">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 font-mono text-xs text-slate-400 tracking-wider">{{ $mhs->nim }}</td>
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-slate-400">{{ $mhs->prodi }}</td>
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">
                             <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/10">
                                 Sem {{ $mhs->semester }}
                             </span>
                         </td>
-                        <td class="px-6 py-4 text-center text-slate-400">{{ $mhs->angkatan }}</td>
-                        <td class="px-6 py-4 text-right">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center text-slate-400">{{ $mhs->angkatan }}</td>
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-right">
                             <div class="flex items-center justify-end gap-2">
                                 
                                 <a href="{{ route('admin.laporan.khs', $mhs->id) }}" target="_blank" class="p-2 text-slate-500 hover:text-indigo-400 hover:bg-indigo-500/5 rounded-lg transition-all" title="Cetak KHS PDF">

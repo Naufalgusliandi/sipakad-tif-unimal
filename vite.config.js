@@ -8,4 +8,11 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    // --- TAMBAHKAN BAGIAN INI ---
+    server: {
+        host: '0.0.0.0',
+        hmr: {
+            host: '192.168.1.18', // IP Laptop kamu
+        },
+    },
 });

@@ -8,7 +8,7 @@
 <div class="space-y-8" main>
     
     <!-- BANNER MEKANISME -->
-    <div class="bg-white overflow-hidden shadow-sm rounded-2xl border border-slate-200 p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="bg-white overflow-hidden shadow-sm rounded-2xl border border-slate-200 p-4 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-4 text-center md:text-left flex-col md:flex-row">
             <div class="p-3 bg-emerald-50 text-emerald-700 rounded-xl border border-emerald-100 shadow-inner">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -34,27 +34,27 @@
 
     <!-- TABEL 1: MATA KULIAH YANG SUDAH DIAMBIL -->
     <div class="bg-white border border-slate-200 rounded-2xl shadow-xl shadow-slate-900/5 overflow-hidden">
-        <div class="p-6 border-b border-slate-100 bg-emerald-50/40 flex justify-between items-center">
-            <div>
-                <h4 class="text-sm font-bold text-emerald-900 uppercase tracking-wider">Mata Kuliah Yang Sudah Diambil (KRS Aktif)</h4>
-                <p class="text-xs text-slate-400 mt-0.5">Daftar kurikulum kelas yang berhasil Anda amankan di semester ini.</p>
-            </div>
-            <!-- Tombol Cetak KRS Digital -->
-            <button onclick="window.print()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-2">
-                Cetak Lembar KRS
-            </button>
-        </div>
+        <div class="p-4 sm:p-6 border-b border-slate-100 bg-emerald-50/40 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
+    <div>
+        <h4 class="text-sm font-bold text-emerald-900 uppercase tracking-wider">Mata Kuliah Yang Sudah Diambil (KRS Aktif)</h4>
+        <p class="text-xs text-slate-400 mt-0.5">Daftar kurikulum kelas yang berhasil Anda amankan di semester ini.</p>
+    </div>
+    <!-- Tombol Cetak KRS Digital -->
+    <button onclick="window.print()" class="w-full sm:w-auto px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center justify-center gap-2">
+        Cetak Lembar KRS
+    </button>
+</div>
 
         <div class="overflow-x-auto print-area">
-            <table class="w-full text-left border-collapse">
+            <table class="w-full min-w-[650px] text-left border-collapse">
                 <thead>
                     <tr class="bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-500 uppercase tracking-wider">
-                        <th class="px-6 py-4 w-20">No</th>
-                        <th class="px-6 py-4 w-32">Kode MK</th>
-                        <th class="px-6 py-4">Nama Mata Kuliah</th>
-                        <th class="px-6 py-4 text-center w-24">SKS</th>
-                        <th class="px-6 py-4 text-center w-28">Semester</th>
-                        <th class="px-6 py-4 text-center w-40 print-hide">Aksi</th>
+                        <th class="px-4 sm:px-6 py-3.5 sm:py-4 w-20">No</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 w-32">Kode MK</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4">Nama Mata Kuliah</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center w-24">SKS</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center w-28">Semester</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center w-40 print-hide">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100">
@@ -63,12 +63,12 @@
                         @if(in_array($mk->id, $id_mk_diambil))
                             @php $has_ambil = true; @endphp
                             <tr class="hover:bg-slate-50/50 transition-colors bg-emerald-50/10">
-                                <td class="px-6 py-4 text-sm font-semibold text-slate-900 font-mono">{{ $no_ambil++ }}</td>
-                                <td class="px-6 py-4 text-sm font-bold text-emerald-800 font-mono uppercase tracking-wide">{{ $mk->kode_mk }}</td>
-                                <td class="px-6 py-4 text-sm font-bold text-slate-900">{{ $mk->nama_mk }}</td>
-                                <td class="px-6 py-4 text-sm font-extrabold text-slate-900 text-center font-mono">{{ $mk->sks }}</td>
-                                <td class="px-6 py-4 text-sm font-semibold text-slate-900 text-center font-mono">Tk. {{ $mk->semester }}</td>
-                                <td class="px-6 py-4 text-center print-hide">
+                                <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-sm font-semibold text-slate-900 font-mono">{{ $no_ambil++ }}</td>
+<td class="px-4 sm:px-6 py-3.5 sm:py-4 text-sm font-bold text-emerald-800 font-mono uppercase tracking-wide">{{ $mk->kode_mk }}</td>
+<td class="px-4 sm:px-6 py-3.5 sm:py-4 text-sm font-bold text-slate-900">{{ $mk->nama_mk }}</td>
+<td class="px-4 sm:px-6 py-3.5 sm:py-4 text-sm font-extrabold text-slate-900 text-center font-mono">{{ $mk->sks }}</td>
+<td class="px-4 sm:px-6 py-3.5 sm:py-4 text-sm font-semibold text-slate-900 text-center font-mono">Tk. {{ $mk->semester }}</td>
+<td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center print-hide">
                                     <form method="POST" action="{{ route('mahasiswa.krs.batal', $mk->id) }}">
                                         @csrf
                                         <button type="submit" class="w-full px-4 py-2 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold text-xs rounded-xl transition-all shadow-sm transform active:scale-95">
@@ -93,21 +93,21 @@
 
     <!-- TABEL 2: DAFTAR PILIHAN MATA KULIAH YANG BELUM DIAMBIL -->
     <div class="bg-white border border-slate-200 rounded-2xl shadow-xl shadow-slate-900/5 overflow-hidden">
-        <div class="p-6 border-b border-slate-100 bg-slate-50/50">
+        <div class="p-4 sm:p-6 border-b border-slate-100 bg-slate-50/50">
             <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Mata Kuliah Yang Belum Diambil (Ditawarkan)</h4>
             <p class="text-xs text-slate-400 mt-0.5">Silakan pilih kelas kurikulum di bawah ini untuk mengisi beban akademik Anda.</p>
         </div>
 
         <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
+            <table class="w-full min-w-[650px] text-left border-collapse">
                 <thead>
                     <tr class="bg-slate-100/70 border-b border-slate-200 text-xs font-bold text-slate-500 uppercase tracking-wider">
-                        <th class="px-6 py-4 w-20">No</th>
-                        <th class="px-6 py-4 w-32">Kode MK</th>
-                        <th class="px-6 py-4">Nama Mata Kuliah</th>
-                        <th class="px-6 py-4 text-center w-24">SKS</th>
-                        <th class="px-6 py-4 text-center w-28">Semester</th>
-                        <th class="px-6 py-4 text-center w-40">Status Aksi</th>
+                        <th class="px-4 sm:px-6 py-3.5 sm:py-4 w-20">No</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 w-32">Kode MK</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4">Nama Mata Kuliah</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center w-24">SKS</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center w-28">Semester</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center w-40">Status Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100">
@@ -115,12 +115,12 @@
                     @forelse($matakuliah_tersedia as $mk)
                         @if(!in_array($mk->id, $id_mk_diambil))
                             <tr class="hover:bg-slate-50/80 transition-colors">
-                                <td class="px-6 py-4 text-sm font-semibold text-slate-900 font-mono">{{ $no_tawar++ }}</td>
-                                <td class="px-6 py-4 text-sm font-bold text-slate-800 font-mono uppercase tracking-wide">{{ $mk->kode_mk }}</td>
-                                <td class="px-6 py-4 text-sm font-bold text-slate-900">{{ $mk->nama_mk }}</td>
-                                <td class="px-6 py-4 text-sm font-extrabold text-slate-900 text-center font-mono">{{ $mk->sks }}</td>
-                                <td class="px-6 py-4 text-sm font-semibold text-slate-900 text-center font-mono">Tk. {{ $mk->semester }}</td>
-                                <td class="px-6 py-4 text-center">
+                                <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-sm font-semibold text-slate-900 font-mono">{{ $no_tawar++ }}</td>
+<td class="px-4 sm:px-6 py-3.5 sm:py-4 text-sm font-bold text-slate-800 font-mono uppercase tracking-wide">{{ $mk->kode_mk }}</td>
+<td class="px-4 sm:px-6 py-3.5 sm:py-4 text-sm font-bold text-slate-900">{{ $mk->nama_mk }}</td>
+<td class="px-4 sm:px-6 py-3.5 sm:py-4 text-sm font-extrabold text-slate-900 text-center font-mono">{{ $mk->sks }}</td>
+<td class="px-4 sm:px-6 py-3.5 sm:py-4 text-sm font-semibold text-slate-900 text-center font-mono">Tk. {{ $mk->semester }}</td>
+<td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">
                                     <form method="POST" action="{{ route('mahasiswa.krs.ambil', $mk->id) }}">
                                         @csrf
                                         <button type="submit" class="w-full px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition-all shadow-md transform active:scale-95" style="background: linear-gradient(135deg, #047857, #059669) !important; color: #ffffff !important; border:none !important;">

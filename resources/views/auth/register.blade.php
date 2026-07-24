@@ -6,11 +6,11 @@
     <title>SIPAKAD TIF - Registrasi Akun Academic</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-slate-100 to-emerald-50/20 font-sans antialiased min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+<body class="bg-gradient-to-br from-slate-50 via-slate-100 to-emerald-50/20 font-sans antialiased min-h-screen flex items-center justify-center p-3 sm:p-6 lg:p-8">
 
     <div class="w-full max-w-lg bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200/60 overflow-hidden my-8">
         
-        <div class="px-8 pt-8 pb-4 text-center border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white">
+        <div class="px-5 sm:px-8 pt-6 sm:pt-8 pb-4 text-center border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white">
             <div class="inline-block p-2 bg-emerald-50 rounded-xl border border-emerald-100 mb-3 shadow-inner">
                 <img src="{{ asset('images/logo-tif.png') }}" alt="Logo TIF" class="w-14 h-14 object-contain">
             </div>
@@ -18,7 +18,7 @@
             <p class="text-xs font-semibold text-emerald-700 uppercase tracking-wider mt-1">Sistem Informasi Portal Akademik Terpadu</p>
         </div>
 
-        <form method="POST" action="{{ route('register') }}" class="p-8 space-y-5">
+        <form method="POST" action="{{ route('register') }}" class="p-5 sm:p-8 space-y-4 sm:space-y-5">
             @csrf
 
             <div class="space-y-1.5">

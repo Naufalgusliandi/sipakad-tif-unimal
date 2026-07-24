@@ -20,7 +20,7 @@
         </div>
     </form>
 
-    <a href="{{ route('admin.mata-kuliah.create') }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-xl text-sm font-semibold shadow-lg shadow-indigo-600/15 hover:from-indigo-500 hover:to-blue-500 transition-all">
+    <a href="{{ route('admin.mata-kuliah.create') }}" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-xl text-sm font-semibold shadow-lg shadow-indigo-600/15 hover:from-indigo-500 hover:to-blue-500 transition-all">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7-7H5.5"></path></svg>
         Tambah Mata Kuliah
     </a>
@@ -28,28 +28,28 @@
 
 <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden">
     <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
+        <table class="w-full min-w-[600px] text-left border-collapse">
             <thead>
                 <tr class="border-b border-slate-800 bg-slate-900/40 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
-                    <th class="px-6 py-4">Kode MK</th>
-                    <th class="px-6 py-4">Nama Mata Kuliah</th>
-                    <th class="px-6 py-4 text-center">SKS</th>
-                    <th class="px-6 py-4 text-center">Semester</th>
-                    <th class="px-6 py-4 text-right">Aksi</th>
+                    <th class="px-4 sm:px-6 py-3.5 sm:py-4">Kode MK</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4">Nama Mata Kuliah</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">SKS</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">Semester</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-right">Aksi</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-800/60 text-sm text-slate-300">
                 @forelse($mataKuliahs as $mk)
                     <tr class="hover:bg-slate-900/30 transition-colors group">
-                        <td class="px-6 py-4 font-mono text-xs text-indigo-400 font-semibold tracking-wider">{{ $mk->kode_mk }}</td>
-                        <td class="px-6 py-4 font-semibold text-slate-200 group-hover:text-indigo-400 transition-colors">{{ $mk->nama_mk }}</td>
-                        <td class="px-6 py-4 text-center">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 font-mono text-xs text-indigo-400 font-semibold tracking-wider">{{ $mk->kode_mk }}</td>
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 font-semibold text-slate-200 group-hover:text-indigo-400 transition-colors">{{ $mk->nama_mk }}</td>
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/10">
                                 {{ $mk->sks }} SKS
                             </span>
                         </td>
-                        <td class="px-6 py-4 text-center text-slate-400">Semester {{ $mk->semester }}</td>
-                        <td class="px-6 py-4 text-right">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center text-slate-400">Semester {{ $mk->semester }}</td>
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-right">
                             <div class="flex items-center justify-end gap-2">
                                 <form action="{{ route('admin.mata-kuliah.destroy', $mk->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus mata kuliah ini dari kurikulum aktif?');">
                                     @csrf

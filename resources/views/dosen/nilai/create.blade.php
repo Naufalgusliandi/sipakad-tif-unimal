@@ -19,7 +19,7 @@
     </a>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 mb-6">
     <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl text-xs">
         <span class="text-slate-500 font-semibold uppercase tracking-wider block">Mata Kuliah Kurikulum</span>
         <span class="text-slate-200 font-bold text-sm block mt-1">{{ $mkSelected->nama_mk }}</span>
@@ -51,13 +51,13 @@
             <table class="w-full text-left border-collapse min-w-[800px]">
                 <thead>
                     <tr class="border-b border-slate-800 bg-slate-900/40 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
-                        <th class="px-6 py-4 w-1/4">Nama Mahasiswa</th>
-                        <th class="px-6 py-4 text-center w-32">Tugas (20%)</th>
-                        <th class="px-6 py-4 text-center w-32">Quiz (15%)</th>
-                        <th class="px-6 py-4 text-center w-32">UTS (30%)</th>
-                        <th class="px-6 py-4 text-center w-32">UAS (35%)</th>
-                        <th class="px-6 py-4 text-center bg-purple-500/5 w-24">Akhir</th>
-                        <th class="px-6 py-4 text-center bg-indigo-500/5 w-20">Huruf</th>
+                        <th class="px-4 sm:px-6 py-3.5 sm:py-4 w-1/4">Nama Mahasiswa</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center w-32">Tugas (20%)</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center w-32">Quiz (15%)</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center w-32">UTS (30%)</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center w-32">UAS (35%)</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center bg-purple-500/5 w-24">Akhir</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center bg-indigo-500/5 w-20">Huruf</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-800/60 text-sm text-slate-300">
@@ -66,32 +66,32 @@
                             $currentNilai = $mhs->nilai->first(); 
                         @endphp
                         <tr class="hover:bg-slate-900/10 transition-colors">
-                            <td class="px-6 py-4">
+                            <td class="px-4 sm:px-6 py-3.5 sm:py-4">
                                 <span class="font-semibold text-slate-200 block">{{ $mhs->user->name }}</span>
                                 <span class="text-xs font-mono text-slate-500 tracking-wider mt-0.5 block">{{ $mhs->nim }}</span>
                             </td>
                             
-                            <td class="px-6 py-4 text-center">
+                            <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">
                                 <input type="number" step="0.01" min="0" max="100" name="tugas[{{ $mhs->id }}]" value="{{ old('tugas.'.$mhs->id, $currentNilai->tugas ?? '') }}" placeholder="0" class="w-20 text-center bg-slate-950/50 border border-slate-800 rounded-lg px-2 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-purple-500 font-mono">
                             </td>
                             
-                            <td class="px-6 py-4 text-center">
+                            <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">
                                 <input type="number" step="0.01" min="0" max="100" name="quiz[{{ $mhs->id }}]" value="{{ old('quiz.'.$mhs->id, $currentNilai->quiz ?? '') }}" placeholder="0" class="w-20 text-center bg-slate-950/50 border border-slate-800 rounded-lg px-2 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-purple-500 font-mono">
                             </td>
                             
-                            <td class="px-6 py-4 text-center">
+                            <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">
                                 <input type="number" step="0.01" min="0" max="100" name="uts[{{ $mhs->id }}]" value="{{ old('uts.'.$mhs->id, $currentNilai->uts ?? '') }}" placeholder="0" class="w-20 text-center bg-slate-950/50 border border-slate-800 rounded-lg px-2 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-purple-500 font-mono">
                             </td>
                             
-                            <td class="px-6 py-4 text-center">
+                            <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center">
                                 <input type="number" step="0.01" min="0" max="100" name="uas[{{ $mhs->id }}]" value="{{ old('uas.'.$mhs->id, $currentNilai->uas ?? '') }}" placeholder="0" class="w-20 text-center bg-slate-950/50 border border-slate-800 rounded-lg px-2 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-purple-500 font-mono">
                             </td>
 
-                            <td class="px-6 py-4 text-center bg-purple-500/5 font-bold text-slate-100 font-mono">
+                            <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center bg-purple-500/5 font-bold text-slate-100 font-mono">
                                 {{ $currentNilai ? number_format($currentNilai->nilai_akhir, 2) : '-' }}
                             </td>
 
-                            <td class="px-6 py-4 text-center bg-indigo-500/5 font-bold">
+                            <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-center bg-indigo-500/5 font-bold">
                                 @if($currentNilai)
                                     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold {{ in_array($currentNilai->nilai_huruf, ['A','B+','B']) ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400' }}">
                                         {{ $currentNilai->nilai_huruf }}
@@ -118,12 +118,12 @@
     </div>
 
     @if($mahasiswas->count() > 0)
-        <div class="flex items-center justify-end gap-3">
-            <a href="{{ route('dosen.nilai.index') }}" class="px-5 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-colors">Batal</a>
-            <button type="submit" class="px-6 py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold rounded-xl shadow-md hover:from-purple-500 hover:to-indigo-500 transition-all">
-                Simpan & Hitung Nilai Akhir
-            </button>
-        </div>
-    @endif
+    <div class="flex flex-col-reverse sm:flex-row items-center sm:justify-end gap-3">
+        <a href="{{ route('dosen.nilai.index') }}" class="w-full sm:w-auto text-center px-5 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-colors">Batal</a>
+        <button type="submit" class="w-full sm:w-auto px-6 py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold rounded-xl shadow-md hover:from-purple-500 hover:to-indigo-500 transition-all">
+            Simpan & Hitung Nilai Akhir
+        </button>
+    </div>
+@endif
 </form>
 @endsection

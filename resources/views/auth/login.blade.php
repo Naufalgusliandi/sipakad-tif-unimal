@@ -34,11 +34,11 @@
             </div>
         </div>
 
-        <div class="flex-1 flex items-center justify-center p-8 sm:p-12 md:p-16 bg-white">
-            <div class="w-full max-w-md space-y-8">
+        <div class="flex-1 flex items-center justify-center p-5 sm:p-8 md:p-16 bg-white">
+            <div class="w-full max-w-md space-y-5 sm:space-y-8">
                 
-                <div class="flex flex-col items-center text-center md:hidden mb-6">
-                    <img src="{{ asset('images/logo-tif.png') }}" alt="Logo TIF" class="w-20 h-20 object-contain mb-3">
+                <div class="flex flex-col items-center text-center md:hidden mb-4 sm:mb-6">
+    <img src="{{ asset('images/logo-tif.png') }}" alt="Logo TIF" class="w-14 h-14 sm:w-20 sm:h-20 object-contain mb-2 sm:mb-3">
                     <h2 class="text-xl font-bold text-slate-950">SIPAKAD TIF UNIMAL</h2>
                     <p class="text-slate-500 text-xs mt-1">Sistem Informasi Portal Akademik Terpadu</p>
                 </div>

@@ -12,7 +12,7 @@
     </a>
 </div>
 
-<div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl p-8 max-w-4xl">
+<div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl p-5 sm:p-8 max-w-4xl">
     @if ($errors->any())
         <div class="mb-6 p-4 bg-rose-500/10 border border-rose-500/20 text-rose-400 rounded-xl text-xs space-y-1">
             <p class="font-bold">Gagal memproses berkas! Silakan koreksi form berikut:</p>
@@ -27,7 +27,7 @@
     <form action="{{ route('dosen.materi.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
         @csrf
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div>
                 <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Mata Kuliah</label>
                 <select name="mata_kuliah_id" required class="w-full bg-slate-950/40 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500/50 transition-all cursor-pointer">
@@ -82,10 +82,10 @@
             </div>
         </div>
 
-        <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-800/60">
-            <a href="{{ route('dosen.materi.index') }}" class="px-5 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-colors">Batal</a>
-            <button type="submit" class="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-semibold rounded-xl shadow-md">Publikasikan Materi</button>
-        </div>
+        <div class="flex flex-col-reverse sm:flex-row items-center sm:justify-end gap-3 pt-4 border-t border-slate-800/60">
+    <a href="{{ route('dosen.materi.index') }}" class="w-full sm:w-auto text-center px-5 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-colors">Batal</a>
+    <button type="submit" class="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-semibold rounded-xl shadow-md">Publikasikan Materi</button>
+</div>
     </form>
 </div>
 

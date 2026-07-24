@@ -19,7 +19,7 @@
     </a>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 mb-6">
     <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl text-xs">
         <span class="text-slate-500 font-semibold uppercase tracking-wider block">Mata Kuliah</span>
         <span class="text-slate-200 font-bold text-sm block mt-1">{{ $mkSelected->nama_mk }}</span>
@@ -42,7 +42,7 @@
     <input type="hidden" name="mata_kuliah_id" value="{{ $mkSelected->id }}">
     <input type="hidden" name="pertemuan_ke" value="{{ $pertemuan }}">
 
-    <div class="flex flex-wrap items-center gap-4 mb-6 bg-slate-900/20 border border-slate-800/60 p-4 rounded-xl backdrop-blur-md">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-6 bg-slate-900/20 border border-slate-800/60 p-4 rounded-xl backdrop-blur-md">
         <div class="flex items-center gap-2 text-xs text-slate-400">
             <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"></path></svg>
             <span>Tanggal:</span>
@@ -56,14 +56,14 @@
     </div>
 
     <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden mb-6">
-        <table class="w-full text-left border-collapse">
-            <thead>
-                <tr class="border-b border-slate-800 bg-slate-900/40 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
-                    <th class="px-6 py-4">Mahasiswa</th>
-                    <th class="px-6 py-4">NIM</th>
-                    <th class="px-6 py-4 text-center w-[450px]">Opsi Presensi</th>
-                </tr>
-            </thead>
+        <table class="w-full min-w-[650px] text-left border-collapse">
+    <thead>
+        <tr class="border-b border-slate-800 bg-slate-900/40 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
+            <th class="px-4 sm:px-6 py-3.5 sm:py-4">Mahasiswa</th>
+            <th class="px-4 sm:px-6 py-3.5 sm:py-4">NIM</th>
+            <th class="px-4 sm:px-6 py-3.5 sm:py-4 text-center w-[450px]">Opsi Presensi</th>
+        </tr>
+    </thead>
             <tbody class="divide-y divide-slate-800/60 text-sm text-slate-300">
                 @forelse($mahasiswas as $mhs)
                     @php
@@ -78,13 +78,13 @@
                         $statusAktif = $getAbsen ? $getAbsen->status : 'Hadir'; 
                     @endphp
                     <tr class="hover:bg-slate-900/10 transition-colors">
-                        <td class="px-6 py-4 font-semibold text-slate-200">
-                            {{ $mhs->user->name }}
-                        </td>
-                        <td class="px-6 py-4 font-mono text-xs text-slate-500 tracking-wider">
-                            {{ $mhs->nim }}
-                        </td>
-                        <td class="px-6 py-4">
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 font-semibold text-slate-200">
+    {{ $mhs->user->name }}
+</td>
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4 font-mono text-xs text-slate-500 tracking-wider">
+    {{ $mhs->nim }}
+</td>
+                        <td class="px-4 sm:px-6 py-3.5 sm:py-4">
                             <div class="flex items-center justify-center gap-3 abs-group">
                                 
                                 <label class="radio-label px-4 py-2 rounded-xl text-xs font-bold cursor-pointer transition-all border select-none min-w-[75px] text-center
@@ -126,13 +126,13 @@
     </div>
 
     @if($mahasiswas->count() > 0)
-        <div class="flex items-center justify-end gap-3">
-            <a href="{{ route('dosen.absensi.index') }}" class="px-5 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-colors">Batal</a>
-            <button type="submit" class="px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-bold rounded-xl shadow-md hover:from-indigo-500 hover:to-purple-500 transition-all">
-                Simpan Presensi Kelas
-            </button>
-        </div>
-    @endif
+    <div class="flex flex-col-reverse sm:flex-row items-center sm:justify-end gap-3">
+        <a href="{{ route('dosen.absensi.index') }}" class="w-full sm:w-auto text-center px-5 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-colors">Batal</a>
+        <button type="submit" class="w-full sm:w-auto px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-bold rounded-xl shadow-md hover:from-indigo-500 hover:to-purple-500 transition-all">
+            Simpan Presensi Kelas
+        </button>
+    </div>
+@endif
 </form>
 
 <style>

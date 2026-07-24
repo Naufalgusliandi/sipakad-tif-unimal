@@ -5,9 +5,9 @@
 @section('page_title', 'Dashboard Utama')
 
 @section('content')
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
     
-    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-6 rounded-2xl relative overflow-hidden group hover:border-indigo-500/30 transition-all duration-300">
+    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-4 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-indigo-500/30 transition-all duration-300">
         <div class="absolute -right-3 -bottom-3 text-slate-800/20 group-hover:text-indigo-500/5 group-hover:scale-110 transition-all duration-300">
             <svg class="w-32 h-32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
         </div>
@@ -21,7 +21,7 @@
         </p>
     </div>
 
-    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-6 rounded-2xl relative overflow-hidden group hover:border-purple-500/30 transition-all duration-300">
+    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-4 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-purple-500/30 transition-all duration-300">
         <div class="absolute -right-3 -bottom-3 text-slate-800/20 group-hover:text-purple-500/5 group-hover:scale-110 transition-all duration-300">
             <svg class="w-32 h-32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 4a2 2 0 012 2v4a2 2 0 01-2 2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
         </div>
@@ -35,7 +35,7 @@
         </p>
     </div>
 
-    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-6 rounded-2xl relative overflow-hidden group hover:border-blue-500/30 transition-all duration-300">
+    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-4 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-blue-500/30 transition-all duration-300">
         <div class="absolute -right-3 -bottom-3 text-slate-800/20 group-hover:text-blue-500/5 group-hover:scale-110 transition-all duration-300">
             <svg class="w-32 h-32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
         </div>
@@ -49,7 +49,7 @@
         </p>
     </div>
 
-    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-6 rounded-2xl relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-300">
+    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-4 sm:p-6 rounded-2xl relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-300">
         <div class="absolute -right-3 -bottom-3 text-slate-800/20 group-hover:text-emerald-500/5 group-hover:scale-110 transition-all duration-300">
             <svg class="w-32 h-32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
         </div>
@@ -65,9 +65,9 @@
 
 </div>
 
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-    <div class="lg:col-span-2 bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-6 rounded-2xl">
-        <div class="flex items-center justify-between mb-4">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+    <div class="lg:col-span-2 bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-4 sm:p-6 rounded-2xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0 mb-4">
             <h4 class="text-sm font-semibold text-slate-300 tracking-wide">Rekapitulasi Status Presensi Mahasiswa</h4>
             <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold px-2.5 py-1 rounded-full uppercase">Data Realtime</span>
         </div>
@@ -76,7 +76,7 @@
         </div>
     </div>
     
-    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-6 rounded-2xl">
+    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl p-4 sm:p-6 rounded-2xl">
         <h4 class="text-sm font-semibold text-slate-300 mb-4 tracking-wide">Pengumuman Terbaru</h4>
         <div class="space-y-4">
             <div class="p-3.5 bg-slate-900/40 border border-slate-800 rounded-xl">

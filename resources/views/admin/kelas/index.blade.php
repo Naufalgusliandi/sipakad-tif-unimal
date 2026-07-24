@@ -14,7 +14,7 @@
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     
-    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl p-6 h-fit">
+    <div class="bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl p-5 sm:p-6 h-fit">
         <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider mb-4 pb-2 border-b border-slate-800/60">Tambah Kelas Baru</h3>
         
         <form action="{{ route('admin.kelas.store') }}" method="POST" class="space-y-4">
@@ -42,21 +42,21 @@
 
     <div class="lg:col-span-2 bg-slate-900/20 border border-slate-800/60 backdrop-blur-xl rounded-2xl overflow-hidden">
         <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
+            <table class="w-full min-w-[500px] text-left border-collapse">
                 <thead>
                     <tr class="border-b border-slate-800 bg-slate-900/40 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
-                        <th class="px-6 py-4">Nama Kelas</th>
-                        <th class="px-6 py-4">Dosen Wali</th>
-                        <th class="px-6 py-4 text-right">Aksi</th>
+                        <th class="px-4 sm:px-6 py-3.5 sm:py-4">Nama Kelas</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4">Dosen Wali</th>
+<th class="px-4 sm:px-6 py-3.5 sm:py-4 text-right">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-800/60 text-sm text-slate-300">
                     @forelse($kelas as $k)
                         <tr class="hover:bg-slate-900/30 transition-colors group">
-                            <td class="px-6 py-4 font-semibold text-slate-200 group-hover:text-indigo-400 transition-colors">
+                            <td class="px-4 sm:px-6 py-3.5 sm:py-4 font-semibold text-slate-200 group-hover:text-indigo-400 transition-colors">
                                 {{ $k->nama_kelas }}
                             </td>
-                            <td class="px-6 py-4 text-slate-400">
+                            <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-slate-400">
                                 @if($k->dosen)
                                     <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/10">
                                         {{ $k->dosen->user->name }}
@@ -65,7 +65,7 @@
                                     <span class="text-xs text-slate-600 italic">Belum ditentukan</span>
                                 @endif
                             </td>
-                            <td class="px-6 py-4 text-right">
+                            <td class="px-4 sm:px-6 py-3.5 sm:py-4 text-right">
                                 <form action="{{ route('admin.kelas.destroy', $k->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus kelas ini?');">
                                     @csrf
                                     @method('DELETE')
