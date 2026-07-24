@@ -15,6 +15,7 @@
 ## Fitur Utama & Kriteria UAS
 1. **Autentikasi Pengguna:** Login, Registrasi, dan Verifikasi Email / Google Login.
 ![Login Page](screenshoot/Login%20(Laptop).png)
+![Login Page1](screenshoot/login%20(hp).jpg)
 2. **Hak Akses Berbasis Role (Multi-Role):**
    * **Admin:** Pengelolaan Master Data (Mahasiswa, Dosen, Mata Kuliah, Kelas, Ruangan, Jadwal Kuliah).
    * **Dosen:** Pengelolaan Absensi, Input Nilai, dan Upload Materi Kuliah.
